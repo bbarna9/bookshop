@@ -14,7 +14,93 @@ header {
   font-size: 2rem;
 }
 
-header > a {
+h1 {
+  padding: 2rem;
+  text-align: center;
+}
+
+.metroSeries {
+  /*display: flex;
+  overflow-y: auto;*/
+  margin-bottom: 2rem;
+}
+
+.book {
+  border: 1px solid black;
+  width: 15rem;
+  margin-right: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.book p {
+  padding-left: 1.5rem;
+  font-weight: bolder;
+}
+
+.book img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20rem;
+  width: 13rem;
+  transition: 0.5s;
+  border-radius: 0;
+}
+
+.book #addToCartButton {
+  display: block;
+  height: 3rem;
+  width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bolder;
+  border: 0;
+  background-color: coral;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+main {
+  flex: 1;
+}
+
+.site-container {
+  min-height: 100vh;
+}
+
+.footer {
+  text-align: center;
+  font-weight: bold;
   color: aliceblue;
-  text-decoration: none;
+  background-color: rgb(48, 48, 48);
+  padding: 20px;
+}
+
+.book-image {
+  margin-top: 2rem;
+  max-width: 20rem;
+}
+
+.a {
+  color: green;
+  font-weight: bold;
+}
+
+.na {
+  color: red;
+  font-weight: bold;
+}
+
+.lc {
+  max-width: 7rem;
+}
+
+.cartButton {
+  font-weight: bolder;
+  border: 0;
+  background-color: coral;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
