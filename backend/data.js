@@ -1,6 +1,9 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
   books: [
     {
+      //_id: '1',
       image: '/img/metro2033.png',
       title: 'Metro 2033',
       author: 'Dmitry Glukhovsky',
@@ -13,6 +16,7 @@ const data = {
       stock: 3,
     },
     {
+      //_id: '2',
       image: '/img/metro2034.png',
       title: 'Metro 2034',
       author: 'Dmitry Glukhovsky',
@@ -25,6 +29,7 @@ const data = {
       stock: 0,
     },
     {
+      //_id: '3',
       image: '/img/metro2035.png',
       title: 'Metro 2035',
       author: 'Dmitry Glukhovsky',
@@ -37,6 +42,7 @@ const data = {
       stock: 3,
     },
     {
+      //_id: '4',
       image: '/img/metroazeg.png',
       title: 'Az ég gyökerei',
       author: 'Tullio Avoledo',
@@ -49,6 +55,7 @@ const data = {
       stock: 3,
     },
     {
+      //_id: '5',
       image: '/img/metroafeny.png',
       title: 'A fény felé',
       author: 'Andrej Gyjakov',
@@ -61,6 +68,7 @@ const data = {
       stock: 3,
     },
     {
+      //_id: '6',
       image: '/img/metrovissza.png',
       title: 'Vissza a sötétségbe',
       author: 'Dmitry Glukhovsky',
@@ -73,6 +81,7 @@ const data = {
       stock: 3,
     },
     {
+      //_id: '7',
       image: '/img/metroapetervari.png',
       title: 'A pétervári háború',
       author: 'Simun Vrocsek',
@@ -83,6 +92,20 @@ const data = {
       description: 'Poszt apokaliptikus világ',
       key: 'metro-apetervari',
       stock: 3,
+    },
+  ],
+  users: [
+    {
+      name: 'Benjámin',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('admin1'),
+      admin: true,
+    },
+    {
+      name: 'User1',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('user1'),
+      admin: false,
     },
   ],
 };

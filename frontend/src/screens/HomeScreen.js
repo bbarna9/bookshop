@@ -1,10 +1,12 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import Book from '../components/Book';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,13 +56,19 @@ function HomeScreen() {
       </Helmet>
       <h1>Metro sorozat</h1>
       <div className="metroSeries">
-        <Row>
-          {books.map((book) => (
-            <Col key={book.key} sm={6} md={4} lg={3}>
-              <Book book={book}></Book>
-            </Col>
-          ))}
-        </Row>
+        {loading ? (
+          <LoadingBox />
+        ) : error ? (
+          <MessageBox variant="danger">{error}</MessageBox>
+        ) : (
+          <Row>
+            {books.map((book) => (
+              <Col key={book.key} sm={6} md={4} lg={3}>
+                <Book book={book}></Book>
+              </Col>
+            ))}
+          </Row>
+        )}{' '}
       </div>
     </div>
   );

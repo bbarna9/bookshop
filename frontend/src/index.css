@@ -8,15 +8,30 @@ body {
 }
 
 header {
+  background-color: rgb(35, 154, 63);
+  margin-bottom: 2rem;
   padding: 1.5rem;
-  padding-left: 5rem;
-  background-color: rgb(48, 48, 48);
-  font-size: 2rem;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  color: rgb(33, 33, 33);
 }
 
 h1 {
-  padding: 2rem;
+  padding-bottom: 2rem;
   text-align: center;
+}
+
+.cart-image {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.cart-image:hover {
+  opacity: 1;
 }
 
 .metroSeries {
@@ -26,7 +41,7 @@ h1 {
 }
 
 .book {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   width: 15rem;
   margin-right: 2rem;
   justify-content: center;
@@ -48,7 +63,7 @@ h1 {
   border-radius: 0;
 }
 
-.book #addToCartButton {
+/*.book #addToCartButton {
   display: block;
   height: 3rem;
   width: 10rem;
@@ -59,7 +74,7 @@ h1 {
   background-color: coral;
   margin-top: 2rem;
   margin-bottom: 1rem;
-}
+}*/
 
 main {
   flex: 1;
@@ -96,11 +111,19 @@ main {
   max-width: 7rem;
 }
 
-.cartButton {
-  font-weight: bolder;
-  border: 0;
-  background-color: coral;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.img-thumbnail {
+  height: 80px;
+}
+
+.small-container {
+  max-width: 600px;
+}
+
+.checkout > div {
+  border-bottom: 0.2rem solid #a0a0a0;
+  color: #a0a0a0;
+}
+.checkout > div.active {
+  border-bottom: 0.2rem solid #f08000;
+  color: #f08000;
 }

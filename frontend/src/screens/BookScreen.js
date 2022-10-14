@@ -1,12 +1,16 @@
 import axios from 'axios';
-import { useEffect, useReducer } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect, useReducer } from 'react';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 import ListGroup from 'react-bootstrap/ListGroup';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../utils';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -44,13 +48,33 @@ function BookScreen() {
         const result = await axios.get(`/api/books/key/${key}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (error) {
-        dispatch({ type: 'FETCH_FAIL', payload: error.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(error) });
       }
     };
     fetchData();
   }, [key]);
 
-  return (
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+
+  const addToCartEvent = async () => {
+    const alreadyAdded = cart.cartItems.find((x) => x._id === book._id);
+    const quantity = alreadyAdded ? alreadyAdded.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/books/${book._id}`);
+    if (data.stock < quantity) {
+      window.alert('Sorry. Product is out of stock');
+      return;
+    }
+    ctxDispatch({
+      type: 'ADD_TO_CART',
+      payload: { ...book, quantity },
+    });
+  };
+  return loading ? (
+    <LoadingBox />
+  ) : error ? (
+    <MessageBox variant="danger">{error}</MessageBox>
+  ) : (
     <div>
       <Row>
         <Col md={5}>
@@ -109,7 +133,11 @@ function BookScreen() {
             {book.stock > 0 && (
               <ListGroup.Item>
                 <div>
-                  <Button className="cartButton" variant="primary">
+                  <Button
+                    onClick={addToCartEvent}
+                    className="cartButton"
+                    variant="primary"
+                  >
                     Kosárba
                   </Button>
                 </div>

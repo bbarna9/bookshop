@@ -1,0 +1,31 @@
+{
+  "name": "bookshop",
+  "version": "1.0.0",
+  "description": "1. Role based login system containing user and admin roles,\r 2. Search function for the offered products,\r 3. Products being loaded from database,\r 4. Fully functioning shopping cart function,\r 5. Editing existing products with admin role,\r 6.",
+  "main": "index.js",
+  "dependencies": {
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "object-assign": "^4.1.1",
+    "react-is": "^16.13.1",
+    "react": "^16.14.0",
+    "prop-types": "^15.8.1",
+    "use-reducer-logger": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbarna9/bookshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbarna9/bookshop/issues"
+  },
+  "homepage": "https://github.com/bbarna9/bookshop#readme"
+}
