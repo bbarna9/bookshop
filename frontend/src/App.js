@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  HashRouter,
+} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from 'react-bootstrap/Navbar';
@@ -34,7 +40,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
@@ -113,7 +119,7 @@ function App() {
           <div className="footer">Ez egy webshop</div>
         </footer>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
